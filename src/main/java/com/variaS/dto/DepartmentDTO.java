@@ -2,8 +2,6 @@ package com.variaS.dto;
 
 import java.util.List;
 
-
-
 import com.variaS.entity.User;
 
 public class DepartmentDTO {

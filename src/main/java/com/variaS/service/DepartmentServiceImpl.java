@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.variaS.dao.DepartmentDao;
-import com.variaS.dao.UserDao;
 import com.variaS.entity.Department;
 
 @Service

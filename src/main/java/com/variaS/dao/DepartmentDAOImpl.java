@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.variaS.entity.Department;
-import com.variaS.entity.User;
 
 @Repository
 public class DepartmentDAOImpl implements DepartmentDao {
