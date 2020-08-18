@@ -5,7 +5,7 @@ USE `spring_security_custom_user_demo`;
 
 --
 -- Table structure for table `user`
---
+-- 
 
 DROP TABLE IF EXISTS `user`;
 
