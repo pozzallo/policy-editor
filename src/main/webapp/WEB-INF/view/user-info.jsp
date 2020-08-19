@@ -29,12 +29,15 @@
 		First name: <i>${user.firstName}, </i> Last name: <i>${user.lastName},</i> Email: <i>${user.email}</i>
 	</p>
 	<hr>
-    <a href="/changePassword.jsp"><i class="fas fa-unlock-alt"></i> change password</a>
+    
+    <a href="${pageContext.request.contextPath}/user/showChangePasswordForm"><i class="fas fa-unlock-alt"></i> change password</a>
+    
     <security:authorize access="hasRole('ADMIN')">
     <a href="${pageContext.request.contextPath}/admin/showFormForAdd"><i class="fas fa-user-plus"></i> create user</a>
     <a href="${pageContext.request.contextPath}/admin/users"><i class="fas fa-users"></i> show all users</a>
     <a href="${pageContext.request.contextPath}/admin/users"><i class="fas fa-user-minus"></i> delete user</a>
     </security:authorize>	
+    
     <hr>
     <a href="${pageContext.request.contextPath}/"><i class="fas fa-sign-out-alt"></i> Back to Home page</a>
 </body>

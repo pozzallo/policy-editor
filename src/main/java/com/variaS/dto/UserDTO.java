@@ -3,6 +3,12 @@ package com.variaS.dto;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.variaS.validation.FieldMatch;
+import com.variaS.validation.ValidEmail;
+
+@FieldMatch.List({
+    @FieldMatch(first = "password", second = "matchingPassword", message = "The password fields must match")
+})
 public class UserDTO {
 	
 	private int id;
@@ -16,6 +22,7 @@ public class UserDTO {
 	@NotNull(message="is requered")
 	private String lastName;
 	
+	@ValidEmail
 	private String email;
 	
 	@NotNull(message="is requered")

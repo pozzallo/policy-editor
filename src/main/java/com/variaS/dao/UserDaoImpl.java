@@ -69,7 +69,7 @@ public class UserDaoImpl implements UserDao {
 
 			// search for firstName or lastName ... case insensitive
 			theQuery = currentSession.createQuery(
-					"from User where lower(username) like :theName or lower(fullname) like :theName", User.class);
+					"from User where lower(userName) like :theName or lower(firstName) like :theName or lower(lastName) like :theName", User.class);
 			theQuery.setParameter("theName", "%" + theSearchName.toLowerCase() + "%");
 
 		} else {
@@ -109,6 +109,14 @@ public class UserDaoImpl implements UserDao {
 		updatedUser.setEmail(user.getEmail());
 		updatedUser.setDescription(user.getDescription());
 		currentSession.saveOrUpdate(updatedUser);
+	}
+
+	@Override
+	public void changePassword(String password, User currentUser) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		User user = currentSession.get(User.class, currentUser.getId());
+		user.setPassword(password);
+		currentSession.saveOrUpdate(user);
 	}
 
 }

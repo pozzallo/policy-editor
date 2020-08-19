@@ -16,7 +16,7 @@
 <body>
     <div class="wrapper">
         <header>
-            <div class="logo"><img src="img/ssl.svg" alt="logo" width="140px" align="left"></div>
+            <div class="logo"><img src="${pageContext.request.contextPath}/resources/img/ssl.svg" alt="logo" width="140px" align="left"></div>
             <div class="header_content">
                 <div class="user"><a href="${pageContext.request.contextPath}/user/info"><i class="fas fa-users-cog"></i> 
                     <security:authentication property="principal.username" /></a></div>

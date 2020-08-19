@@ -19,4 +19,6 @@ public interface UserDao {
 	List<User> getUsers();
 
 	void updateUser(User user);
+
+	void changePassword(String password, User currentUser);
 }

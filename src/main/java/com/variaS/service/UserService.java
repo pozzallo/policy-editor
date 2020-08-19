@@ -23,4 +23,6 @@ public interface UserService extends UserDetailsService {
 
 	void updateUser(User user);
 
+	public void changeUserPassword(String password, User currentUser);
+
 }

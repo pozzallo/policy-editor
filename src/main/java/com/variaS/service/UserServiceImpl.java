@@ -97,4 +97,13 @@ public class UserServiceImpl implements UserService {
 
 		userDao.updateUser(user);
 	}
+
+
+
+	@Override
+	@Transactional
+	public void changeUserPassword(String rawPassword, User currentUser) {
+		String password = passwordEncoder.encode(rawPassword);
+		userDao.changePassword(password, currentUser);
+	}
 }
