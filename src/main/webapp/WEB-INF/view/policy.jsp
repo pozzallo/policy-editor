@@ -31,47 +31,44 @@
                 </div>
             </div>
         </header>
+        <h3>Policy: ${policyTitle}</h3>
+        <br> <br>
+        <hr>
+       
         <div class="content">
+        
             <div class="sidebar">
-            
-            <c:forEach var="tempPolicy" items="${policies}">
-				
-					<!-- construct an "show policy" link with policy id -->
-					<c:url var="showPolicy" value="/policy/showPolicy">
-						<c:param name="policyId" value="${tempPolicy.id}" />
-					</c:url>				
-                <a href="${showPolicy}">${tempPolicy.title}</a><br>
-            
-           	</c:forEach>
-            
-            </div>
-          
-            <div class="main_view">
-           <%--  <form:form action="savePolicy" modelAttribute="policyDTO" method="POST"> 
-
-                <div class="">
-                	<form:hidden path="id"/>
-                	<form:textarea path="version"/>
-                	<form:textarea path="description"/>
-                	
-                </div>
-                
-                <div class="">
-                	<c:forEach var="tempProfile" items="${profiles}">
-                		<a href="">${tempProfile.title}</a><br>
-           			</c:forEach>
-                </div>
-                
-                 <div class="">
+             <h4>Rules:</h4> <br>
                 	<c:forEach var="tempRule" items="${rules}">
 
 						<c:url var="showRule" value="/policy/showRule">
 							<c:param name="ruleId" value="${tempRule.id}" />
 						</c:url>
-                		<a href="${showPolicy}">${tempRule.title}</a><br>
+                		<a href="${showRule}">${tempRule.title}</a><br>
+           			</c:forEach>
+            
+            </div>
+          
+            <div class="main_view">
+            <form:form action="savePolicy" modelAttribute="policyDTO" method="POST"> 
+
+                <div class="">
+                	<form:hidden path="id"/>
+                	Policy version:<form:textarea path="version" style="width:100%; height:30px"/> <br>
+                	Policy description:<form:textarea path="description" style="width:100%; height:200px"/>
+                </div>
+                
+                <div class="">
+                Policy profiles: <br>
+                	<c:forEach var="tempProfile" items="${profiles}">
+                		${tempProfile.title}<br>
            			</c:forEach>
                 </div>
-              </form:form>  --%>
+                
+                 <div class="">
+
+                </div>
+              </form:form> 
             </div>
      </div>
      <footer>this is some information in footer</footer>

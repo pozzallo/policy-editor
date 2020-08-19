@@ -31,47 +31,42 @@
                 </div>
             </div>
         </header>
+        <h3>Rule: ${ruleTitle}</h3>
+        <br> <br>
+        <hr>
+       
         <div class="content">
+        
             <div class="sidebar">
-            
-            <c:forEach var="tempPolicy" items="${policies}">
-				
-					<!-- construct an "show policy" link with policy id -->
-					<c:url var="showPolicy" value="/policy/showPolicy">
-						<c:param name="policyId" value="${tempPolicy.id}" />
-					</c:url>				
-                <a href="${showPolicy}">${tempPolicy.title}</a><br>
-            
-           	</c:forEach>
-            
+             <h4>Profiles:</h4> <br>
+            	 <ul>
+                	<c:forEach var="tempProfile" items="${ruleProfiles}">
+						<li>${tempProfile.title}</li>
+           			</c:forEach>
+           		 </ul>
             </div>
           
             <div class="main_view">
-           <%--  <form:form action="savePolicy" modelAttribute="policyDTO" method="POST"> 
+            <form:form action="savePolicy" modelAttribute="rule" method="POST"> 
 
                 <div class="">
                 	<form:hidden path="id"/>
-                	<form:textarea path="version"/>
-                	<form:textarea path="description"/>
-                	
+                	Rule description:<form:textarea path="description" style="width:100%; height:30px"/> <br>
+                	Checked Text:<form:textarea path="checkedText" style="width:100%; height:200px"/> <br>
+                	Fix Text:<form:textarea path="fixText" style="width:100%; height:200px"/> <br>
                 </div>
                 
                 <div class="">
+                Policy profiles: <br>
                 	<c:forEach var="tempProfile" items="${profiles}">
-                		<a href="">${tempProfile.title}</a><br>
+                		${tempProfile.title}<br>
            			</c:forEach>
                 </div>
                 
                  <div class="">
-                	<c:forEach var="tempRule" items="${rules}">
 
-						<c:url var="showRule" value="/policy/showRule">
-							<c:param name="ruleId" value="${tempRule.id}" />
-						</c:url>
-                		<a href="${showPolicy}">${tempRule.title}</a><br>
-           			</c:forEach>
                 </div>
-              </form:form>  --%>
+              </form:form> 
             </div>
      </div>
      <footer>this is some information in footer</footer>

@@ -27,7 +27,7 @@ header{
     flex-wrap:wrap ;
     justify-content: space-between;
     font-size: 20px;
-    height: 100px;
+    height: 80px;
     background-color:  #c5ece788;;
 }
 .header_content{
@@ -39,7 +39,7 @@ header{
 .header_content div{
     padding: 15px 40px 35px;
 }
-a{
+.header_content a{
     font-size: 26px;
     display:block;
     margin-top: 20px;
@@ -65,6 +65,11 @@ a i{color:#3ca194;}
 .sidebar{
    width:130px;
    border-right: 2px solid gray ;
+   font-size: 18px;
+}
+.sidebar a{
+	 display:block;
+    margin-bottom: 8px;
 }
 .main_view{
     flex-grow: 1;
