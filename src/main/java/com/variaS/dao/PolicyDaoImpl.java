@@ -41,4 +41,18 @@ public class PolicyDaoImpl implements PolicyDao {
 		return policy;
 	}
 
+
+	@Override
+	public void save(Policy policy) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		currentSession.saveOrUpdate(policy);
+	}
+
+
+	@Override
+	public void delete(Policy policy) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		currentSession.delete(policy);
+	}
+
 }

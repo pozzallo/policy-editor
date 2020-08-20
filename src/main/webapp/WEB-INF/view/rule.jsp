@@ -12,6 +12,16 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style2.css" >
     <link href="${pageContext.request.contextPath}/resources/libs/awesome/css/all.css" rel="stylesheet">
     <title>Document</title>
+        <style type="text/css">
+    
+    .save {
+	font-weight: bold;
+	width: 130px; 
+	padding: 5px 10px; 
+	margin-top: 30px;
+	background: #cccccc;
+}
+    </style>
 </head>
 
 <body>
@@ -31,7 +41,13 @@
                 </div>
             </div>
         </header>
-        <h3>Rule: ${ruleTitle}</h3>
+        <h3>Rule: ${ruleTitle} ${rule.id}</h3>
+        			<c:url var="deleteLink" value="/policy/deleteRule">
+						<c:param name="ruleId" value="${rule.id}" />
+						<c:param name="policyId" value="${policyId}" />
+					</c:url>
+        <a href="${deleteLink}"
+							onclick="if (!(confirm('Are you sure you want to delete this policy?'))) return false">Delete this rule</a>
         <br> <br>
         <hr>
        
@@ -46,30 +62,28 @@
            		 </ul>
             </div>
           
-            <div class="main_view">
-            <form:form action="savePolicy" modelAttribute="rule" method="POST"> 
+            <div class="main_view" style="padding:8px;padding-right:25px">
+            <form:form action="saveRule?policyId=${policyId}" modelAttribute="rule" method="POST"> 
 
                 <div class="">
                 	<form:hidden path="id"/>
-                	Rule description:<form:textarea path="description" style="width:100%; height:30px"/> <br>
-                	Checked Text:<form:textarea path="checkedText" style="width:100%; height:200px"/> <br>
-                	Fix Text:<form:textarea path="fixText" style="width:100%; height:200px"/> <br>
+                	Title:<form:textarea path="title" style="width:100%; height:50px; padding:8px"/> <br> 
+                	Rule description:<form:textarea path="description" style="width:100%; height:80px; padding:8px"/> <br>
+                	Checked Text:<form:textarea path="checkedText" style="width:100%; height:200px;padding:8px"/> <br>
+                	Fix Text:<form:textarea path="fixText" style="width:100%; height:200px;padding:8px"/> <br>
                 </div>
                 
                 <div class="">
-                Policy profiles: <br>
-                	<c:forEach var="tempProfile" items="${profiles}">
-                		${tempProfile.title}<br>
-           			</c:forEach>
+               		 <input type="submit" value="Save" class="save" />
                 </div>
                 
-                 <div class="">
-
+                 <div class="" style="margin-top:10px">
+					 <a href="${pageContext.request.contextPath}/policy/showPolicy?policyId=${policyId}">Back to list of Rules</a>
                 </div>
               </form:form> 
-            </div>
-     </div>
-     <footer>this is some information in footer</footer>
-    </div>
+              </div>
+         </div>
+         </div>
+
 </body>
 </html> 

@@ -8,10 +8,7 @@ import com.variaS.entity.Rule;
 public class PolicyDTO {
 
     private Long id;
-	private String title;
 	private String description;
-    private List<Profile> profiles;
-    private List<Rule> rules;
 	private long version;
 
 	
@@ -32,13 +29,7 @@ public class PolicyDTO {
 		this.id = id;
 	}
 
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
+	
 
 	public String getDescription() {
 		return description;
@@ -48,21 +39,7 @@ public class PolicyDTO {
 		this.description = description;
 	}
 
-	public List<Profile> getProfiles() {
-		return profiles;
-	}
-
-	public void setProfiles(List<Profile> profiles) {
-		this.profiles = profiles;
-	}
-
-	public List<Rule> getRules() {
-		return rules;
-	}
-
-	public void setRules(List<Rule> rules) {
-		this.rules = rules;
-	}
+	
 
 	public long getVersion() {
 		return version;

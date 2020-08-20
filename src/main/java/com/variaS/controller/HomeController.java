@@ -22,6 +22,6 @@ public class HomeController {
 		
 		theModel.addAttribute("policies", policies);
 		
-		return "home";
+		return "home-test";
 	}
 }

@@ -32,7 +32,7 @@
             </div>
         </header>
         <div class="content">
-            <div class="sidebar">
+            <div class="sidebar" style="width:50%">
             
             <c:forEach var="tempPolicy" items="${policies}">
 				
@@ -47,34 +47,10 @@
             </div>
           
             <div class="main_view">
-           <%--  <form:form action="savePolicy" modelAttribute="policyDTO" method="POST"> 
-
-                <div class="">
-                	<form:hidden path="id"/>
-                	<form:textarea path="version"/>
-                	<form:textarea path="description"/>
-                	
-                </div>
-                
-                <div class="">
-                	<c:forEach var="tempProfile" items="${profiles}">
-                		<a href="">${tempProfile.title}</a><br>
-           			</c:forEach>
-                </div>
-                
-                 <div class="">
-                	<c:forEach var="tempRule" items="${rules}">
-
-						<c:url var="showRule" value="/policy/showRule">
-							<c:param name="ruleId" value="${tempRule.id}" />
-						</c:url>
-                		<a href="${showPolicy}">${tempRule.title}</a><br>
-           			</c:forEach>
-                </div>
-              </form:form>  --%>
+       
             </div>
      </div>
-     <footer>this is some information in footer</footer>
+    
     </div>
 </body>
 </html> 

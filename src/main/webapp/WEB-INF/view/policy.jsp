@@ -12,6 +12,16 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style2.css" >
     <link href="${pageContext.request.contextPath}/resources/libs/awesome/css/all.css" rel="stylesheet">
     <title>Document</title>
+    <style type="text/css">
+    
+    .save {
+	font-weight: bold;
+	width: 130px; 
+	padding: 5px 10px; 
+	margin-top: 30px;
+	background: #cccccc;
+}
+    </style>
 </head>
 
 <body>
@@ -43,19 +53,20 @@
 
 						<c:url var="showRule" value="/policy/showRule">
 							<c:param name="ruleId" value="${tempRule.id}" />
+							<c:param name="policyId" value="${policyId}" />
 						</c:url>
                 		<a href="${showRule}">${tempRule.title}</a><br>
            			</c:forEach>
-            
+            	<a href="${pageContext.request.contextPath}/policy/addRule?policyId=${policyId}">Add New Rule</a><br>
             </div>
           
-            <div class="main_view">
+            <div class="main_view" style="padding:8px">
             <form:form action="savePolicy" modelAttribute="policyDTO" method="POST"> 
 
                 <div class="">
                 	<form:hidden path="id"/>
-                	Policy version:<form:textarea path="version" style="width:100%; height:30px"/> <br>
-                	Policy description:<form:textarea path="description" style="width:100%; height:200px"/>
+                	Policy version:<form:textarea path="version" style="width:100%; height:30px;padding:8px"/> <br>
+                	Policy description:<form:textarea path="description" style="width:100%; height:200px;padding:8px"/>
                 </div>
                 
                 <div class="">
@@ -66,12 +77,14 @@
                 </div>
                 
                  <div class="">
-
+					<input type="submit" value="Save" class="save" />
+                </div>
+                <div class="" style="margin-top:10px">
+					 <a href="${pageContext.request.contextPath}/">Back to list of Policies</a>
                 </div>
               </form:form> 
             </div>
      </div>
-     <footer>this is some information in footer</footer>
     </div>
 </body>
 </html> 

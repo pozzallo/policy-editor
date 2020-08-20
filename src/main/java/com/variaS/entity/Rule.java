@@ -20,7 +20,7 @@ import javax.persistence.Table;
 public class Rule {
 	
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(length = 512)
@@ -35,7 +35,7 @@ public class Rule {
     @Column(length = 1024)
 	private String fixText;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinColumn(name = "POLICY_ID")
 	private Policy policy;
 	
@@ -117,9 +117,5 @@ public class Rule {
 	public void setProfiles(List<Profile> profiles) {
 		this.profiles = profiles;
 	}
-	
-	
-	
-	
 
 }

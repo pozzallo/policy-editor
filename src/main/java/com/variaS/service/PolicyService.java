@@ -14,4 +14,13 @@ public interface PolicyService {
 
 	public Policy getPolicy(Long policyId);
 
+	public void save(Policy policy);
+
+	public void update(Long id,long version, String description);
+
+	public void delete(Policy policy);
+
+	public void remuveRule(Long policyId, Long ruleId);
+
+
 }

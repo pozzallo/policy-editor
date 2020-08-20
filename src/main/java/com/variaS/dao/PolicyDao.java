@@ -9,6 +9,10 @@ public interface PolicyDao {
 	public List<Policy> getPolicies();
 
 	public Policy getPolicy(Long policyId);
+
+	public void save(Policy policy);
+
+	public void delete(Policy policy);
 	
 
 }

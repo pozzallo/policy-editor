@@ -11,7 +11,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Version;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
@@ -21,7 +20,7 @@ import org.hibernate.annotations.FetchMode;
 public class Policy {
 	
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(length = 512)
@@ -30,7 +29,7 @@ public class Policy {
     @Column(length = 1024)
 	private String description;
     
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "policy", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "policy", cascade = CascadeType.ALL, orphanRemoval = true)
     @Fetch (FetchMode.SELECT)
     private List<Profile> profiles;
     
@@ -38,7 +37,7 @@ public class Policy {
     @Fetch (FetchMode.SELECT)
     private List<Rule> rules;
 	
-	@Version
+    @Column(name = "version")
 	private long version;
 
 	public Long getId() {
@@ -87,6 +86,18 @@ public class Policy {
 
 	public void setVersion(long version) {
 		this.version = version;
+	}
+
+	public Policy(Long id, String description, long version) {
+		super();
+		this.id = id;
+		this.description = description;
+		this.version = version;
+	}
+
+	public Policy() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 	
 	

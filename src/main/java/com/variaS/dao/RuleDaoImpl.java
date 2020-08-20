@@ -23,7 +23,17 @@ public class RuleDaoImpl implements RuleDao {
 		return rule;
 	}
 
+	@Override
+	public void save(Rule rule) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		currentSession.saveOrUpdate(rule);
+	}
 
+	@Override
+	public void delete(Rule rule) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		currentSession.delete(rule);
+	}
 
 
 }
