@@ -12,8 +12,10 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style2.css" >
     <link href="${pageContext.request.contextPath}/resources/libs/awesome/css/all.css" rel="stylesheet">
     <title>Document</title>
-    <style type="text/css">
-    
+<style type="text/css">
+   html, body {
+  height: 100%;
+}    
     .save {
 	font-weight: bold;
 	width: 130px; 
@@ -21,13 +23,48 @@
 	margin-top: 30px;
 	background: #cccccc;
 }
-    </style>
+
+a{text-decoration: none;}
+.addrule{
+font-size: 18px;
+	display: block;
+	margin-top: 10px;
+	text-decoration: none;
+	border:2px solid #e1e6e3;
+	width:150px;
+	padding:5px;
+	background-color: #edf2ef;
+	color: black;
+}
+.addrule:hover{background-color: #e1e6e3;}
+.wrapper{padding:10px;}
+h3{margin-top:15px}
+.back a{
+            font-size: 20px;
+            display:block;
+            margin-top: 20px;
+            text-decoration:none;
+            color:gray;
+        }
+.sidebar{
+ overflow: scroll;
+ height:800px;
+}
+.sidebar a{
+font-size: 16px;
+color: black;
+display: inline-block;
+}
+.sidebar a:hover{
+background-color: #e1e6e3;
+}
+</style>
 </head>
 
 <body>
     <div class="wrapper">
         <header>
-            <div class="logo"><img src="${pageContext.request.contextPath}/resources/img/ssl.svg" alt="logo" width="140px" align="left"></div>
+            <div class="logo"><img src="${pageContext.request.contextPath}/resources/img/ssl.svg" alt="logo" width="110px" align="left"></div>
             <div class="header_content">
                 <div class="user"><a href="${pageContext.request.contextPath}/user/info"><i class="fas fa-users-cog"></i> 
                     <security:authentication property="principal.username" /></a></div>
@@ -42,7 +79,7 @@
             </div>
         </header>
         <h3>Policy: ${policyTitle}</h3>
-        <br> <br>
+        <a href="${pageContext.request.contextPath}/policy/addRule?policyId=${policyId}" class="addrule">Add New Rule</a><br>
         <hr>
        
         <div class="content">
@@ -79,8 +116,8 @@
                  <div class="">
 					<input type="submit" value="Save" class="save" />
                 </div>
-                <div class="" style="margin-top:10px">
-					 <a href="${pageContext.request.contextPath}/">Back to list of Policies</a>
+                <div class="back" style="margin-top:10px">
+					 <a href="${pageContext.request.contextPath}/"><i class="fas fa-sign-out-alt"></i>Back to list of Policies</a>
                 </div>
               </form:form> 
             </div>

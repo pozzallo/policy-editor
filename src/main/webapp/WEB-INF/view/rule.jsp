@@ -21,13 +21,34 @@
 	margin-top: 30px;
 	background: #cccccc;
 }
+h3{margin-top:15px}
+.del{
+font-size: 18px;
+	display: block;
+	margin-top: 10px;
+	text-decoration: none;
+	border:2px solid #e1e6e3;
+	width:150px;
+	padding:5px;
+	background-color: #edf2ef;
+	color: black;
+}
+.del:hover{background-color: #e1e6e3;}
+.wrapper{padding:10px;}
+.back a{
+            font-size: 20px;
+            display:block;
+            margin-top: 20px;
+            text-decoration:none;
+            color:gray;
+        }
     </style>
 </head>
 
 <body>
     <div class="wrapper">
         <header>
-            <div class="logo"><img src="${pageContext.request.contextPath}/resources/img/ssl.svg" alt="logo" width="140px" align="left"></div>
+            <div class="logo"><img src="${pageContext.request.contextPath}/resources/img/ssl.svg" alt="logo" width="110px" align="left"></div>
             <div class="header_content">
                 <div class="user"><a href="${pageContext.request.contextPath}/user/info"><i class="fas fa-users-cog"></i> 
                     <security:authentication property="principal.username" /></a></div>
@@ -46,9 +67,9 @@
 						<c:param name="ruleId" value="${rule.id}" />
 						<c:param name="policyId" value="${policyId}" />
 					</c:url>
-        <a href="${deleteLink}"
+        <a class="del" href="${deleteLink}"
 							onclick="if (!(confirm('Are you sure you want to delete this policy?'))) return false">Delete this rule</a>
-        <br> <br>
+       <br>
         <hr>
        
         <div class="content">
@@ -77,8 +98,8 @@
                		 <input type="submit" value="Save" class="save" />
                 </div>
                 
-                 <div class="" style="margin-top:10px">
-					 <a href="${pageContext.request.contextPath}/policy/showPolicy?policyId=${policyId}">Back to list of Rules</a>
+                 <div class="back" style="margin-top:10px">
+					 <a href="${pageContext.request.contextPath}/policy/showPolicy?policyId=${policyId}"><i class="fas fa-sign-out-alt"></i>Back to list of Rules</a>
                 </div>
               </form:form> 
               </div>

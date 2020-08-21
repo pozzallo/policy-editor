@@ -21,6 +21,9 @@
 	href="${pageContext.request.contextPath}/resources/libs/awesome/css/all.css"
 	rel="stylesheet">
 <style>
+a{
+text-decoration: none;
+}
 .back a {
 	font-size: 20px;
 	display: block;
@@ -40,7 +43,7 @@ a i {
 		<header>
 			<div class="logo">
 				<img src="${pageContext.request.contextPath}/resources/img/ssl.svg"
-					alt="logo" width="140px" align="left">
+					alt="logo" width="110px" align="left">
 			</div>
 			<div class="header_content">
 				<div class="user">
@@ -62,17 +65,21 @@ a i {
 		</header>
 
 		<div id="header" style="margin-top:30px">
-			<h2>Policies:</h2>
+		
+				<form method="POST" action="${pageContext.request.contextPath}/file/uploadFile?${_csrf.parameterName}=${_csrf.token}" enctype="multipart/form-data">
+				   <label>Upload new policy</label>
+				   <input type="file" name="file" style="padding:5px"/> 
+				   <input type="hidden" 
+             name="${_csrf.parameterName}" 
+             value="${_csrf.token}" />
+				   <input type="submit" value="Add policy" style="padding:5px"/>
+			</form>
 		</div>
-	
+
 
 	<div id="container">
 
 		<div id="content">
-
-			<input type="button" value="Upload Policy"
-				onclick="window.location.href='showFormForAdd'; return false;"
-				class="add-button" />
 
 			<!--  add our html table here -->
 

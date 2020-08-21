@@ -54,7 +54,7 @@ header{
     border-radius: 5%;
 }
 a i{color:#3ca194;}
-.logout i{color:#3ca194;}
+.sign_out i{color:#3ca194;}
 /* -----------------header end---------------------- */
 
 .content{
@@ -63,7 +63,7 @@ a i{color:#3ca194;}
     /* justify-content: space-around; */
 }
 .sidebar{
-   width:130px;
+   width:150px;
    border-right: 2px solid gray ;
    font-size: 18px;
 }
